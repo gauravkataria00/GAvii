@@ -1,0 +1,5 @@
+import { formatNumber } from '../utils/gameUtils'
+
+export default function NumberGrid({ selectedNumber, onSelect }) {
+  return <section className="card number-card" aria-labelledby="number-grid-title"><div className="section-heading"><div><p className="eyebrow">01 / Choose a number</p><h2 id="number-grid-title">Number grid</h2></div><span className="selected-count">{selectedNumber === null ? 'None selected' : `Selected · ${formatNumber(selectedNumber)}`}</span></div><div className="number-grid" role="grid" aria-label="Choose a demo number from 00 to 99">{Array.from({ length: 100 }, (_, number) => <button key={number} className={`number-button ${selectedNumber === number ? 'selected' : ''}`} onClick={() => onSelect(number)} aria-label={`Select number ${formatNumber(number)}`} aria-pressed={selectedNumber === number} role="gridcell">{formatNumber(number)}</button>)}</div></section>
+}

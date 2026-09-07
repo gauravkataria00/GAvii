@@ -1,0 +1,3 @@
+export default function Hero() {
+  return <section className="hero redesigned-hero"><div className="hero-copy-block"><span className="hero-kicker"><i /> ONLY ONE KING · SIMULATION</span><h1>Choose a number.<br /><em>Play the simulation.</em><br />Check the result.</h1><p>A polished number-game experience powered entirely by local virtual credits. No real-money functionality is connected.</p><div className="hero-pills"><span>SIMULATION MODE</span><span>VIRTUAL CREDITS ONLY</span></div></div><div className="hero-orbit" aria-hidden="true"><div className="orbit-ring orbit-ring-one" /><div className="orbit-ring orbit-ring-two" /><span className="orbit-number">42</span><span className="orbit-dot orbit-dot-one" /><span className="orbit-dot orbit-dot-two" /></div></section>
+}

@@ -1,0 +1,6 @@
+import { DEMO_MULTIPLIER } from '../constants/gameConfig'
+import { formatCredits, formatDateTime, formatNumber } from '../utils/gameUtils'
+
+export default function TransactionHistory({ plays }) {
+  return <section className="card history-card" aria-labelledby="transactions-title"><div className="section-heading"><div><p className="eyebrow">Local ledger</p><h2 id="transactions-title">Virtual Play History</h2></div><span className="demo-only">Virtual / demo only</span></div>{plays.length === 0 ? <div className="empty-state"><span>○</span><strong>No virtual plays yet</strong><small>Your local demo ledger will appear here.</small></div> : <div className="history-table">{plays.slice(0, 8).map((play) => <div className="history-row transaction-row" key={play.id}><span className={`transaction-icon ${play.status === 'match' ? 'win' : ''}`}>{play.status === 'match' ? '+' : '−'}</span><div><strong>Play · {formatNumber(play.number)}</strong><small>{play.sessionName} · {play.status === 'pending' ? 'Awaiting demo result' : play.status === 'match' ? `Demo Match · ×${DEMO_MULTIPLIER} bonus` : 'No Match'} · {formatDateTime(play.createdAt)}</small></div><span className={play.status === 'match' ? 'credit win-text' : 'credit'}>{play.status === 'match' ? '+' : '−'}{formatCredits(play.status === 'match' ? play.bonus : play.stake)}</span></div>)}</div>}</section>
+}
